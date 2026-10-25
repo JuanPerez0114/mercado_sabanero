@@ -47,4 +47,16 @@ describe('HU-06. Puntos de fidelidad', () => {
   });
 
 
+    test('CP-39: el envío no cuenta para los puntos (total $26.000 con envío $8.000 da 18 puntos)', () => {
+    // Arrange (preparar)
+    const total = 26000;
+    const envio = 8000;
+    const totalSinEnvio = total - envio;
+
+    // Act (ejecutar)
+    const puntos = calcularPuntos(totalSinEnvio);
+
+    // Assert (verificar)
+    expect(puntos).toBe(18);
+  });
 });
