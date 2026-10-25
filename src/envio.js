@@ -12,4 +12,8 @@ function calcularEnvio(municipio, productosConIva) {
   return ENVIO_OTRO_MUNICIPIO;
 }
 
-module.exports = { calcularEnvio };
+function calcularTotal(subtotal, descuento, iva, envio) {
+  return subtotal - descuento + iva + envio;
+}
+
+module.exports = { calcularEnvio, calcularTotal };
