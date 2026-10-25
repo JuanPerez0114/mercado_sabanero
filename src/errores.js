@@ -5,4 +5,11 @@ class CantidadInvalidaError extends Error {
   }
 }
 
-module.exports = { CantidadInvalidaError };
+class StockInsuficienteError extends Error {
+  constructor(mensaje = 'Stock insuficiente') {
+    super(mensaje);
+    this.name = 'StockInsuficienteError';
+  }
+}
+
+module.exports = { CantidadInvalidaError, StockInsuficienteError };
