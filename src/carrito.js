@@ -9,14 +9,16 @@ class Carrito {
     this.items = new Map();
   }
 
-  agregar(producto, cantidad) {
+    agregar(producto, cantidad) {
     if (cantidad < CANTIDAD_MINIMA || cantidad > CANTIDAD_MAXIMA) {
       throw new CantidadInvalidaError();
     }
     if (this.inventario.obtenerStock(producto.id) < cantidad) {
       throw new StockInsuficienteError();
     }
-    this.items.set(producto.id, { producto, cantidad });
+    const existente = this.items.get(producto.id);
+    const cantidadTotal = (existente ? existente.cantidad : 0) + cantidad;
+    this.items.set(producto.id, { producto, cantidad: cantidadTotal });
   }
 
   obtenerItems() {
