@@ -11,4 +11,16 @@ describe('HU-06. Puntos de fidelidad', () => {
     // Assert (verificar)
     expect(puntos).toBe(0);
   });
+
+    test('CP-36: con $1.000 exactos sin envío se gana 1 punto', () => {
+    // Arrange (preparar)
+    const totalSinEnvio = 1000;
+
+    // Act (ejecutar)
+    const puntos = calcularPuntos(totalSinEnvio);
+
+    // Assert (verificar)
+    expect(puntos).toBe(1);
+  });
+
 });
