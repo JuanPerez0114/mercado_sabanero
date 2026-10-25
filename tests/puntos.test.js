@@ -23,4 +23,14 @@ describe('HU-06. Puntos de fidelidad', () => {
     expect(puntos).toBe(1);
   });
 
+    test('CP-37: con $1.999 sin envío solo cuentan los miles completos (1 punto)', () => {
+    // Arrange (preparar)
+    const totalSinEnvio = 1999;
+
+    // Act (ejecutar)
+    const puntos = calcularPuntos(totalSinEnvio);
+
+    // Assert (verificar)
+    expect(puntos).toBe(1);
+  });
 });
