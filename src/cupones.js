@@ -7,6 +7,7 @@ function aplicarCupon(codigo, subtotal) {
     }
     return subtotal * 0.10;
   }
+  throw new CuponInvalidoError();
 }
 
 function aplicarEnvioGratis(codigo, envio) {
