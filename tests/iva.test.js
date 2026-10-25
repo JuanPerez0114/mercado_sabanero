@@ -12,4 +12,23 @@ describe('HU-02. Calcular el IVA', () => {
     // Assert (verificar)
     expect(iva).toBe(esperado);
   });
+
+    test('calcula el IVA sobre el valor con el descuento aplicado', () => {
+    // Arrange (preparar): $180.000 con 5 % de descuento = $171.000
+    const valor = 180000;
+
+    // Act (ejecutar)
+    const iva = calcularIvaLinea(valor, 19, 5);
+
+    // Assert (verificar)
+    expect(iva).toBe(32490);
+  });
+
+  test('redondea el IVA al peso más cercano', () => {
+    // Act (ejecutar): 4.510 * 19 % = 856,9
+    const iva = calcularIvaLinea(4510, 19);
+
+    // Assert (verificar)
+    expect(iva).toBe(857);
+  });
 });
