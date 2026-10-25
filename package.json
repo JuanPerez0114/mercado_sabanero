@@ -1,10 +1,17 @@
 {
   "name": "mercado_sabanero",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Módulo de liquidación de compras de Mercado Sabanero (TDD con Jest)",
+  "main": "src/liquidacion.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": ["src/**/*.js"],
+    "coverageThreshold": { "global": { "lines": 80 } }
   },
   "repository": {
     "type": "git",
