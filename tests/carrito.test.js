@@ -53,4 +53,16 @@ describe('HU-01. Agregar productos al carrito', () => {
     expect(carrito.obtenerItems()).toHaveLength(1);
     expect(carrito.obtenerItems()[0].cantidad).toBe(5);
   });
+
+    test('rechaza por stock insuficiente si la suma acumulada supera el inventario', () => {
+    // Arrange (preparar)
+    const inventario = { obtenerStock: jest.fn().mockReturnValue(4) };
+    const carrito = new Carrito(inventario);
+    const licuadora = { id: 'LIC-1', precio: 180000, iva: 19 };
+    carrito.agregar(licuadora, 3);
+
+    // Act + Assert (ejecutar y verificar)
+    expect(() => carrito.agregar(licuadora, 2)).toThrow(StockInsuficienteError);
+    expect(carrito.obtenerItems()[0].cantidad).toBe(3);
+  });
 });
