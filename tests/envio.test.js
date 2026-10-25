@@ -35,4 +35,15 @@ describe('HU-05. Costo de envío', () => {
     expect(envio).toBe(8000);
   });
 
+    test('CP-33: con productos con IVA de $150.000 el envío es gratis', () => {
+    // Arrange (preparar)
+    const municipio = 'Sincelejo';
+    const productosConIva = 150000;
+
+    // Act (ejecutar)
+    const envio = calcularEnvio(municipio, productosConIva);
+
+    // Assert (verificar)
+    expect(envio).toBe(0);
+  });
 });
