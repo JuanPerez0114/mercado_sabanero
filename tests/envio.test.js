@@ -1,4 +1,4 @@
-const { calcularEnvio } = require('../src/envio');
+const { calcularEnvio, calcularTotal } = require('../src/envio');
 
 describe('HU-05. Costo de envío', () => {
   test('CP-30: el envío dentro de Sincelejo cuesta $8.000', () => {
@@ -46,4 +46,22 @@ describe('HU-05. Costo de envío', () => {
     // Assert (verificar)
     expect(envio).toBe(0);
   });
+
+    test('CP-34: el total de 4 arroces de $4.500 a Sincelejo es $26.000', () => {
+    // Arrange (preparar)
+    const subtotal = 4 * 4500;
+    const descuento = 0;
+    const iva = 0;
+    const envio = calcularEnvio('Sincelejo', subtotal);
+
+    // Act (ejecutar)
+    const total = calcularTotal(subtotal, descuento, iva, envio);
+
+    // Assert (verificar)
+    expect(total).toBe(26000);
+  });
+
+
+
+
 });
