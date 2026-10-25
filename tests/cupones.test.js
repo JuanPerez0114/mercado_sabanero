@@ -39,4 +39,31 @@ describe('HU-04. Cupones de descuento', () => {
     // Act + Assert (ejecutar y verificar)
     expect(() => aplicarCupon('NOEXISTE', subtotal)).toThrow(CuponInvalidoError);
   });
+
+    test('CP-26: un cupón vencido lanza CuponInvalidoError', () => {
+    // Arrange (preparar)
+    const subtotal = 60000;
+    const fechaUso = '2027-01-01';
+
+    // Act + Assert (ejecutar y verificar)
+    expect(() => aplicarCupon('SABANERO10', subtotal, fechaUso)).toThrow(CuponInvalidoError);
+  });
+
+    test('CP-27: un cupón que vence hoy sigue siendo válido', () => {
+    // Arrange (preparar)
+    const subtotal = 50000;
+    const fechaUso = '2026-12-31';
+
+    // Act (ejecutar)
+    const descuento = aplicarCupon('SABANERO10', subtotal, fechaUso);
+
+    // Assert (verificar)
+    expect(descuento).toBe(5000);
+  });
+
+
+  
+
+
+
 });
