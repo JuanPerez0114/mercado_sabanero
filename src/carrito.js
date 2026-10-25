@@ -1,3 +1,5 @@
+const { CantidadInvalidaError } = require('./errores');
+
 class Carrito {
   constructor(inventario) {
     this.inventario = inventario;
@@ -5,6 +7,9 @@ class Carrito {
   }
 
   agregar(producto, cantidad) {
+    if (cantidad < 1 || cantidad > 50) {
+      throw new CantidadInvalidaError();
+    }
     this.items.set(producto.id, { producto, cantidad });
   }
 
