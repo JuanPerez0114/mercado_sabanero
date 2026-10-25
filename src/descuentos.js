@@ -4,4 +4,8 @@ function porcentajeDescuentoVolumen(subtotal) {
   return 0;
 }
 
-module.exports = { porcentajeDescuentoVolumen };
+function calcularDescuento(subtotal, porcentaje) {
+  return Math.round((subtotal * porcentaje) / 100);
+}
+
+module.exports = { porcentajeDescuentoVolumen, calcularDescuento };
