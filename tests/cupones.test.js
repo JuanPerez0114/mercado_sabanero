@@ -73,7 +73,17 @@ describe('HU-04. Cupones de descuento', () => {
     expect(descuento).toBe(22800);
   });
   
-  
+    test('CP-29: con volumen 10% y SABANERO10 se aplica solo 10%, sin sumar', () => {
+    // Arrange (preparar)
+    const subtotal = 300000;
+    const descuentoVolumen = 30000;
+
+    // Act (ejecutar)
+    const descuento = aplicarMayorDescuento('SABANERO10', subtotal, descuentoVolumen);
+
+    // Assert (verificar)
+    expect(descuento).toBe(30000);
+  });
 
 
 
