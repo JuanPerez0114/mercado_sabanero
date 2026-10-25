@@ -1,4 +1,4 @@
-const { porcentajeDescuentoVolumen } = require('../src/descuentos');
+const { porcentajeDescuentoVolumen, calcularDescuento } = require('../src/descuentos');
 
 describe('HU-03. Descuento por volumen', () => {
   test.each([
@@ -14,5 +14,21 @@ describe('HU-03. Descuento por volumen', () => {
 
     // Assert (verificar)
     expect(porcentaje).toBe(esperado);
+  });
+
+    test('calcula el valor del descuento sobre el subtotal', () => {
+    // Act (ejecutar)
+    const descuento = calcularDescuento(228000, 5);
+
+    // Assert (verificar)
+    expect(descuento).toBe(11400);
+  });
+
+  test('redondea el descuento al peso más cercano', () => {
+    // Act (ejecutar): 200.010 * 5 % = 10.000,5
+    const descuento = calcularDescuento(200010, 5);
+
+    // Assert (verificar)
+    expect(descuento).toBe(10001);
   });
 });
