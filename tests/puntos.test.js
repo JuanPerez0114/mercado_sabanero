@@ -33,4 +33,18 @@ describe('HU-06. Puntos de fidelidad', () => {
     // Assert (verificar)
     expect(puntos).toBe(1);
   });
+
+    test('CP-38: cliente ORO con $250.515 sin envío recibe el doble (500 puntos)', () => {
+    // Arrange (preparar)
+    const totalSinEnvio = 250515;
+    const categoria = 'ORO';
+
+    // Act (ejecutar)
+    const puntos = calcularPuntos(totalSinEnvio, categoria);
+
+    // Assert (verificar)
+    expect(puntos).toBe(500);
+  });
+
+
 });
