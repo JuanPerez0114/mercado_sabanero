@@ -9,4 +9,10 @@ function aplicarCupon(codigo, subtotal) {
   }
 }
 
-module.exports = { aplicarCupon };
+function aplicarEnvioGratis(codigo, envio) {
+  if (codigo === 'ENVIOGRATIS') {
+    return 0;
+  }
+}
+
+module.exports = { aplicarCupon, aplicarEnvioGratis };
