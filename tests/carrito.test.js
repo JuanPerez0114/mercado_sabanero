@@ -15,7 +15,7 @@ describe('HU-01. Agregar productos al carrito', () => {
     expect(carrito.obtenerItems()[0].cantidad).toBe(1);
   });
 
-  test.each([[0], [51]])(
+    test.each([[0], [51], [-1]])(
     'rechaza con CantidadInvalidaError al agregar %i unidades',
     (cantidad) => {
       // Arrange (preparar)
@@ -27,6 +27,35 @@ describe('HU-01. Agregar productos al carrito', () => {
       expect(() => carrito.agregar(licuadora, cantidad)).toThrow(CantidadInvalidaError);
     }
   );
+
+    test.each([[1], [2], [49], [50]])(
+    'acepta agregar %i unidades (cantidad válida)',
+    (cantidad) => {
+      // Arrange (preparar)
+      const inventario = { obtenerStock: jest.fn().mockReturnValue(100) };
+      const carrito = new Carrito(inventario);
+      const licuadora = { id: 'LIC-1', precio: 180000, iva: 19 };
+
+      // Act (ejecutar)
+      carrito.agregar(licuadora, cantidad);
+
+      // Assert (verificar)
+      expect(carrito.obtenerItems()[0].cantidad).toBe(cantidad);
+    }
+  );
+
+  test('permite agregar cuando el stock es exactamente la cantidad pedida', () => {
+    // Arrange (preparar)
+    const inventario = { obtenerStock: jest.fn().mockReturnValue(4) };
+    const carrito = new Carrito(inventario);
+    const licuadora = { id: 'LIC-1', precio: 180000, iva: 19 };
+
+    // Act (ejecutar)
+    carrito.agregar(licuadora, 4);
+
+    // Assert (verificar)
+    expect(carrito.obtenerItems()[0].cantidad).toBe(4);
+  });
 
     test('informa stock insuficiente cuando el inventario tiene menos de lo pedido', () => {
     // Arrange (preparar)
