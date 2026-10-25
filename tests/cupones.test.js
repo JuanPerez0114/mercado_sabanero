@@ -1,6 +1,5 @@
-const { aplicarCupon } = require('../src/cupones');
-const { CuponInvalidoError } = require('../src/errores');
 const { aplicarCupon, aplicarEnvioGratis } = require('../src/cupones');
+const { CuponInvalidoError } = require('../src/errores');
 
 describe('HU-04. Cupones de descuento', () => {
   test('SABANERO10 da 10% con subtotal de $50.000', () => {
@@ -22,18 +21,22 @@ describe('HU-04. Cupones de descuento', () => {
     expect(() => aplicarCupon('SABANERO10', subtotal)).toThrow(CuponInvalidoError);
   });
 
-
   test('CP-24: ENVIOGRATIS deja el envío en $0 en compra pequeña a Corozal', () => {
-  // Arrange (preparar)
-  const envioCorozal = 15000;
+    // Arrange (preparar)
+    const envioCorozal = 15000;
 
-  // Act (ejecutar)
-  const envioFinal = aplicarEnvioGratis('ENVIOGRATIS', envioCorozal);
+    // Act (ejecutar)
+    const envioFinal = aplicarEnvioGratis('ENVIOGRATIS', envioCorozal);
 
-  // Assert (verificar)
-  expect(envioFinal).toBe(0);
-});
+    // Assert (verificar)
+    expect(envioFinal).toBe(0);
+  });
 
+  test('CP-25: un cupón inexistente lanza CuponInvalidoError', () => {
+    // Arrange (preparar)
+    const subtotal = 60000;
 
-
+    // Act + Assert (ejecutar y verificar)
+    expect(() => aplicarCupon('NOEXISTE', subtotal)).toThrow(CuponInvalidoError);
+  });
 });
