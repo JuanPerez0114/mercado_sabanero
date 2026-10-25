@@ -12,7 +12,16 @@ describe('HU-05. Costo de envío', () => {
     expect(envio).toBe(8000);
   });
 
-  
+    test('CP-31: el envío a otro municipio de Sucre (Corozal) cuesta $15.000', () => {
+    // Arrange (preparar)
+    const municipio = 'Corozal';
+
+    // Act (ejecutar)
+    const envio = calcularEnvio(municipio);
+
+    // Assert (verificar)
+    expect(envio).toBe(15000);
+  });
 
 
 
