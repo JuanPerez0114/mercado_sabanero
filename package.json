@@ -1,0 +1,24 @@
+{
+  "name": "mercado_sabanero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanPerez0114/mercado_sabanero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/JuanPerez0114/mercado_sabanero/issues"
+  },
+  "homepage": "https://github.com/JuanPerez0114/mercado_sabanero#readme",
+  "devDependencies": {
+    "jest": "^30.5.2"
+  }
+}
