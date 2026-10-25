@@ -12,4 +12,12 @@ class StockInsuficienteError extends Error {
   }
 }
 
-module.exports = { CantidadInvalidaError, StockInsuficienteError };
+class CuponInvalidoError extends Error {
+  constructor(mensaje = 'Cupón inválido') {
+    super(mensaje);
+    this.name = 'CuponInvalidoError';
+  }
+}
+
+module.exports = { CantidadInvalidaError, StockInsuficienteError, CuponInvalidoError };
+
