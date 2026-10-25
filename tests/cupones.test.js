@@ -1,4 +1,4 @@
-const { aplicarCupon, aplicarEnvioGratis } = require('../src/cupones');
+const { aplicarCupon, aplicarEnvioGratis, aplicarMayorDescuento } = require('../src/cupones');
 const { CuponInvalidoError } = require('../src/errores');
 
 describe('HU-04. Cupones de descuento', () => {
@@ -61,7 +61,18 @@ describe('HU-04. Cupones de descuento', () => {
     expect(descuento).toBe(5000);
   });
 
+    test('CP-28: con volumen 5% y SABANERO10 se aplica solo el 10% del cupón', () => {
+    // Arrange (preparar)
+    const subtotal = 228000;
+    const descuentoVolumen = 11400;
 
+    // Act (ejecutar)
+    const descuento = aplicarMayorDescuento('SABANERO10', subtotal, descuentoVolumen);
+
+    // Assert (verificar)
+    expect(descuento).toBe(22800);
+  });
+  
   
 
 
