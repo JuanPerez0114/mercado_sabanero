@@ -21,4 +21,9 @@ function aplicarEnvioGratis(codigo, envio) {
   }
 }
 
-module.exports = { aplicarCupon, aplicarEnvioGratis };
+function aplicarMayorDescuento(codigo, subtotal, descuentoVolumen, fechaUso) {
+  const descuentoCupon = aplicarCupon(codigo, subtotal, fechaUso);
+  return Math.max(descuentoVolumen, descuentoCupon);
+}
+
+module.exports = { aplicarCupon, aplicarEnvioGratis, aplicarMayorDescuento };
