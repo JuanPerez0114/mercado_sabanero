@@ -10,19 +10,27 @@ class Carrito {
   }
 
   agregar(producto, cantidad) {
-    if (cantidad < CANTIDAD_MINIMA || cantidad > CANTIDAD_MAXIMA) {
-      throw new CantidadInvalidaError();
-    }
+    this._validarRango(cantidad);
     const existente = this.items.get(producto.id);
     const cantidadTotal = (existente ? existente.cantidad : 0) + cantidad;
-    if (this.inventario.obtenerStock(producto.id) < cantidadTotal) {
-      throw new StockInsuficienteError();
-    }
+    this._validarStock(producto.id, cantidadTotal);
     this.items.set(producto.id, { producto, cantidad: cantidadTotal });
   }
 
   obtenerItems() {
     return [...this.items.values()];
+  }
+
+  _validarRango(cantidad) {
+    if (cantidad < CANTIDAD_MINIMA || cantidad > CANTIDAD_MAXIMA) {
+      throw new CantidadInvalidaError();
+    }
+  }
+
+  _validarStock(idProducto, cantidadTotal) {
+    if (this.inventario.obtenerStock(idProducto) < cantidadTotal) {
+      throw new StockInsuficienteError();
+    }
   }
 }
 
