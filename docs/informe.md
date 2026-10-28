@@ -28,8 +28,22 @@ El ejemplo de la guía (total $250.515 y 250 puntos): (indicar si pasó).
 
 ## 4. Conclusiones
 
-(Escribir con sus palabras qué aprendieron del TDD y de las pruebas unitarias.)
+Trabajar con TDD nos obligó a pensar en el comportamiento esperado antes de escribir el código. Cada criterio de aceptación se convirtió primero en una prueba que fallaba (rojo), luego escribimos solo el código necesario para que pasara (verde) y, cuando hizo falta, mejoramos el diseño sin cambiar el resultado (refactor). Ver los commits `test:`, `feat:` y `refactor:` en orden dejó evidencia clara del proceso.
+
+Las pruebas unitarias nos ayudaron a detectar casos que no son evidentes al leer el enunciado. Por ejemplo, al sumar cantidades de un mismo producto, el stock debe validarse contra la cantidad acumulada y no solo contra la cantidad nueva. También confirmamos la importancia de los valores límite (0, 1, 50 y 51 unidades; $199.999 y $200.000 de subtotal), porque es donde más fácil se cometen errores.
+
+Los dobles de prueba (mock) nos permitieron probar el carrito sin depender de un servicio de inventario real, controlando el stock en cada caso. Las pruebas parametrizadas redujeron código repetido y facilitaron cubrir muchos valores con una sola prueba. Además, tener la suite en verde nos dio seguridad para refactorizar, porque cualquier cambio que rompiera el comportamiento se detectaba al instante.
+
+Aprendimos también que una cobertura alta no basta por sí sola: lo importante es que las pruebas verifiquen reglas de negocio reales y casos límite. Y que dividir las historias entre los integrantes, con commits propios y revisión entre pares, mejora la calidad y permite que cada uno entienda el código de los demás.
 
 ## 5. Uso de inteligencia artificial
 
-(Declarar de forma honesta cómo se usó la IA como apoyo, por ejemplo: "Se usó Claude como apoyo para entender el flujo de TDD y estructurar los documentos. El equipo escribió, revisó y puede explicar cada línea del código y de las pruebas.")
+## Uso de inteligencia artificial
+El equipo usó Claude (Anthropic) como apoyo durante el proyecto:
+- Organizar la estructura del proyecto y hacer seguimiento del trabajo paso a paso.
+- Guiar el ciclo TDD (rojo, verde, refactor) y los commits.
+- Proponer ejemplos de código y de pruebas, que el equipo escribió, ejecutó, revisó y ajustó.
+- Ayudar a diagnosticar errores (configuración de Jest, mensajes de Git y PowerShell).
+- Preparar las plantillas de la documentación (plan de pruebas, matriz, defectos e informe).
+
+Los integrantes ejecutaron cada prueba y cada commit, y pueden explicar cada línea del código y de las pruebas.
