@@ -12,15 +12,14 @@ Se eligió **JavaScript (Node.js)** porque es sencillo, no requiere compilación
 | Indicador | Valor |
 |---|---|
 | Casos de prueba planificados (matriz) | 40 |
-| Pruebas automatizadas ejecutadas | (completar) |
-| Pruebas exitosas | (completar) |
-| Pruebas fallidas | (completar) |
-| Cobertura de líneas | (completar) % |
-| Pruebas parametrizadas | (completar) |
-| Pruebas de error | (completar) |
-| Pruebas con doble de prueba | (completar) |
+| Pruebas automatizadas ejecutadas | 43 |
+| Pruebas exitosas | 43 |
+| Pruebas fallidas | 0 |
+| Cobertura de líneas | 100 % (ramas 96,87 %) |
+| Pruebas parametrizadas | 6 |
+| Pruebas de error | 6 |
+| Pruebas con doble de prueba | 7 (todas en carrito.test.js) |
 
-El ejemplo de la guía (total $250.515 y 250 puntos): (indicar si pasó).
 
 ## 3. Dificultades
 
