@@ -54,6 +54,16 @@ docs/       plan de pruebas, matriz de casos, registro de defectos, informe y ca
 ## Metodología
 Cada criterio de aceptación se desarrolló con TDD, y los commits evidencian el ciclo: `test:` (rojo), `feat:` (verde) y `refactor:`.
 
+## Uso de inteligencia artificial
+El equipo usó Claude (Anthropic) como apoyo durante el proyecto:
+- Organizar la estructura del proyecto y hacer seguimiento del trabajo paso a paso.
+- Guiar el ciclo TDD (rojo, verde, refactor) y los commits.
+- Proponer ejemplos de código y de pruebas, que el equipo escribió, ejecutó, revisó y ajustó.
+- Ayudar a diagnosticar errores (configuración de Jest, mensajes de Git y PowerShell).
+- Preparar las plantillas de la documentación (plan de pruebas, matriz, defectos e informe).
+
+Los integrantes ejecutaron cada prueba y cada commit, y pueden explicar cada línea del código y de las pruebas.
+
 ## Decisiones sobre reglas ambiguas
 1. Todo se calcula con enteros y `Math.round`; el IVA se redondea por línea.
 2. El IVA se calcula por línea sobre `precio × cantidad × (1 − descuento)`.
